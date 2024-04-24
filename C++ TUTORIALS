@@ -1,0 +1,544 @@
+//C++ TUTORIALS
+
+//HEADER FILE
+#include <iostream>
+/*iostream is a standard input-output stream.
+Used for input output functions*/
+
+
+//NAMESPACE
+/* Namespace provide the space where we can define 
+    or declare identifier i.e. variable,  method, classes.
+Example, you might be writing some code that has a function called xyz() and there is another library available which is also having same function xyz(). Now the compiler has no way of knowing which version of xyz() function you are referring to within your code.
+A namespace is designed to overcome this difficulty and is used as additional information to differentiate similar functions, classes, variables etc. with the same name available in different libraries. 
+The best example of namespace scope is the C++ standard library (std) where all the classes, methods and templates are declared. 
+*/
+// Use this command for now. Untill the things go wrong.
+using namespace std;
+
+
+int main(){
+    //code;
+    return 0;
+}
+//The code written here is executed.
+
+
+/* INPUT AND OUTPUT
+cout- aka print in c++. For eg.*/
+int main() {
+  cout << "Hello World!";
+  return 0;
+}
+
+//cin- aka input in c++. For eg.
+int main() {
+  int x;
+  cout << "Type a number: "; // Type a number and press enter
+  cin >> x; // Get user input from the keyboard
+  cout << "Your number is: " << x;
+  return 0;
+}
+
+/* \n or endl- for new line.
+   \t- for tab.
+   \\- Inserts a backslash (\).
+   \"- Inserts "
+   \'- Inserts '
+*/
+
+
+/* VARIABLES
+    int - stores integers
+double - stores decimals such as 19.99 or -19.99
+float- Same as double.
+char - single characters like 'a' or 'B'. 
+       Char values are surrounded by single quotes.
+string - stores text, such as "Hello World". 
+         String values are surrounded by double quotes
+bool - stores values with two states: true or false
+
+float can store upto 6-7 decimals
+double can store upto 15 decimals
+
+Syntax
+type variableName = value; */
+int a=4;
+string str1="Meow";
+char A='B';
+char b = 65; //65 is the ASCII Value 
+bool isCodingFun = true;
+cout << isCodingFun;  // Outputs 1 (true)
+//and so on.
+ 
+
+//Declare many variables at once
+int x = 5, y = 6, z = 50;
+cout << x + y + z;
+
+//One Value to Multiple Variables
+int x, y, z;
+x = y = z = 50;
+cout << x + y + z;
+
+//CONSTANTS
+//Unmutable and read only variables. For eg.
+const int myNum = 15;  // myNum will always be 15
+myNum = 10;  // error: assignment of read-only variable 'myNum'
+
+
+/* OPERATORS
+No ** operator in c++ like in Python.
+All other python operators work in c++.
+++ operator increases value of variable by 1.
+-- operator decreases value of variable by 1.
+*/
+int x = 5;
+  x++;
+  cout << x; //Output is 6
+
+int x = 5;
+  x--;
+  cout << x; //Output is 4
+
+//Logical Operators
+
+//And Operator
+cout << (5 > 3 && 5 < 10); 
+// returns true (1) because 5 is greater than 3 AND 5 is less than 10
+
+//Or Operator
+cout << (x > 3 || x < 4); 
+// returns true (1) because one of the conditions are true
+
+//Not Operator
+cout << (!(x > 3 && x < 10));
+// returns false (0) because ! (not) is used to reverse the result
+
+
+//STRINGS
+//Mutable in c++.
+#include <string> //To use strings.
+//Although it is included in iostream, advisable to use this too.
+string greeting = "Hello";
+
+/*String Concatenation same as Python.
+We can also use append functions.*/
+string firstName = "John ";
+string lastName = "Doe";
+string fullName = firstName.append(lastName);
+cout << fullName;
+
+//For string Length
+cout << "The length of the txt string is: " << greeting.length();
+cout << "The length of the txt string is: " << greeting.size();
+
+//Transversing in strings
+string myString = "Hello";
+cout << myString[0];  // Outputs H
+
+//Change in strings
+string myString = "Hello";
+myString[0] = 'J';
+cout << myString;   // Outputs Jello instead of Hello
+
+/* Problem with cin regarding string.
+cin considers a space (whitespace, tabs, new line etc) as a 
+terminating character. For eg.*/
+string fullName;
+cout << "Type your full name: ";
+cin >> fullName;
+cout << "Your name is: " << fullName;
+
+// Type your full name: John Doe
+// Your name is: John
+
+//To fix this problem, we use getline()
+string fullName;
+cout << "Type your full name: ";
+getline (cin, fullName);
+cout << "Your name is: " << fullName;
+
+// Type your full name: John Doe
+// Your name is: John Doe
+
+
+// MATH LIBRARY
+cout << max(5, 10);  //Output is 10
+cout << min(5,10);   //Output is 5
+
+//But for other functions, we need to Include the cmath library
+
+#include <cmath>
+cout << sqrt(64);
+cout << round(2.6);
+cout << log(2);
+
+
+//IF-ELSE CONDITIONS
+//Syntax:- 
+if (condition1) {
+  // block of code to be executed if condition1 is true
+} else if (condition2) {
+  /* block of code to be executed if the condition1 is false 
+  and condition2 is true*/
+} else {
+  /* block of code to be executed if the condition1 is false 
+  and condition2 is false*/
+}
+
+/* TERNARY OPERATOR
+Used to replace multiple line of codes.
+Syntax:- 
+variable = (condition) ? expressionTrue : expressionFalse;
+*/
+
+//For eg instead of writing this:- 
+int time = 20;
+if (time < 18) {
+  cout << "Good day.";
+} else {
+  cout << "Good evening.";
+}
+//We can simply write this:- 
+int time = 20;
+string result = (time < 18) ? "Good day." : "Good evening.";
+cout << result;
+
+
+/*  SWITCH
+Use the switch statement to select one of many code
+ blocks to be executed.
+This is how it works:
+
+The switch expression is evaluated once.
+The value of the expression is compared with the values of each case.
+If there is a match, the associated block of code is executed.
+The break and default keywords are optional.
+*/
+
+int day = 4;
+switch (day) {
+  case 1:
+    cout << "Monday";
+    break;
+  case 2:
+    cout << "Tuesday";
+    break;
+  case 3:
+    cout << "Wednesday";
+    break;
+  case 4:
+    cout << "Thursday";
+    break;
+  case 5:
+    cout << "Friday";
+    break;
+  case 6:
+    cout << "Saturday";
+    break;
+  case 7:
+    cout << "Sunday";
+    break;
+}
+// Outputs "Thursday" (day 4)
+
+/*Break keyword- Same as in Python.
+Default keyword- Specifies some code to run if there is no case match
+*/
+
+int day = 4;
+switch (day) {
+  case 6:
+    cout << "Today is Saturday";
+    break;
+  case 7:
+    cout << "Today is Sunday";
+    break;
+  default:
+    cout << "Looking forward to the Weekend";
+}
+// Outputs "Looking forward to the Weekend"
+
+
+//LOOPS 
+
+//While Loop- Syntax
+while (condition) {
+  // code block to be executed
+}
+//For eg.
+int i = 0;
+while (i < 5) {
+  cout << i << "\n";
+  i++;
+}
+
+//Do-While Loop
+/* The do/while loop is a variant of the while loop. This loop will execute the
+ code block once, before checking if the condition is true, then it will repeat
+  the loop as long as the condition is true.
+
+The loop will always be executed at least once, even if the condition is false, 
+because the code block is executed before the condition is tested
+
+Syntax:- */
+do {
+  // code block to be executed
+}
+while (condition);
+
+//For eg.
+int i = 0;
+do {
+  cout << i << "\n";
+  i++;
+}
+while (i < 5);
+
+//For Loop- Syntax
+for (statement 1; statement 2; statement 3) {
+  // code block to be executed
+}
+/* Here:-
+Statement 1 is executed (one time) before the execution of the code block.
+Statement 2 defines the condition for executing the code block.
+Statement 3 is executed (every time) after the code block has been executed.
+
+The example below will print the numbers 0 to 4:
+*/
+for (int i = 0; i < 5; i++) {
+  cout << i << "\n";
+}
+
+//Nested Loops
+//For eg
+
+// Outer loop
+for (int i = 1; i <= 2; ++i) {
+  cout << "Outer: " << i << "\n"; // Executes 2 times
+
+  // Inner loop
+  for (int j = 1; j <= 3; ++j) {
+    cout << " Inner: " << j << "\n"; // Executes 6 times (2 * 3)
+  }
+}
+
+
+//Continue in Loops
+/*The continue statement breaks one iteration (in the loop), if a specified
+ condition occurs, and continues with the next iteration in the loop.
+
+This example skips the value of 4:
+*/
+for (int i = 0; i < 10; i++) {
+  if (i == 4) {
+    continue;
+  }
+  cout << i << "\n";
+}
+
+
+
+/*ARRAYS
+Immutable in c++. Can only replace an element.
+Syntax:- 
+datatype variable[No. of elements]={elements};
+For eg. :- */
+
+string cars[4] = {"Volvo", "BMW", "Ford", "Mazda"};
+int myNum[3] = {10, 20, 30};
+
+//Or we can also insert elements like this:- 
+string cars[5];
+cars[0] = "Volvo";
+cars[1] = "BMW";
+...
+
+//Accessing elements in an Array
+string cars[4] = {"Volvo", "BMW", "Ford", "Mazda"};
+cout << cars[0];    // Outputs Volvo
+
+//Changing elements in an Array
+string cars[4] = {"Volvo", "BMW", "Ford", "Mazda"};
+cars[0] = "Opel";
+cout << cars[0];      // Now outputs Opel instead of Volvo
+
+//Loops in Array
+string cars[5] = {"Volvo", "BMW", "Ford", "Mazda", "Tesla"};
+for (int i = 0; i < 5; i++) {
+  cout << cars[i] << "\n";
+}
+
+/*The for-each loop
+Syntax:- 
+for (type variableName : arrayName) {
+  // code block to be executed
+} 
+For eg:- */
+
+int myNumbers[5] = {10, 20, 30, 40, 50};
+for (int i : myNumbers) {
+  cout << i << "\n";
+}
+//Here first i has value 10, then loop will execute, then it will have 
+//value 20 and so on.
+
+//Size of an Array
+int myNumbers[5] = {10, 20, 30, 40, 50};
+int getArrayLength = sizeof(myNumbers) / sizeof(int);
+cout << getArrayLength;
+
+/*The sizeof() operator returns the size of a type in bytes.
+So we have to divide the size of the array by the size of the data type it contains.
+*/
+
+//Multi-Dimensional Array
+string letters[2][4] = {
+  { "A", "B", "C", "D" },
+  { "E", "F", "G", "H" }
+};  
+/*Here 2 is the size of outer array.
+4 is the size of inner array.
+We can access and change the elements in this array just like in Python.
+*/
+
+//Loop Through a Multi-Dimensional Array
+string letters[2][4] = {
+  { "A", "B", "C", "D" },
+  { "E", "F", "G", "H" }
+};
+
+for (int i = 0; i < 2; i++) {
+  for (int j = 0; j < 4; j++) {
+    cout << letters[i][j] << "\n";
+  }
+} //Just like in Python. Nothing new here.
+
+
+
+//Structures
+/* Structures (also called structs) are a way to group several related 
+variables into one place.
+Syntax:- */
+struct {             // Structure declaration
+  int myNum;         // Member (int variable)
+  string myString;   // Member (string variable)
+} myStructure;       // Structure variable
+
+//Accessing Structure Members
+
+// Create a structure variable called myStructure
+struct {
+  int myNum;
+  string myString;
+} myStructure;
+
+// Assign values to members of myStructure
+myStructure.myNum = 1;
+myStructure.myString = "Hello World!";
+
+// Print members of myStructure
+cout << myStructure.myNum << "\n";
+cout << myStructure.myString << "\n";
+
+//Named Structures 
+//By giving a name to the structure, we can treat it as a data type. 
+//For eg.
+
+// Declare a structure named "car"
+struct car {
+  string brand;
+  string model;
+  int year;
+};
+
+int main() {
+  // Create a car structure and store it in myCar1;
+  car myCar1;
+  myCar1.brand = "BMW";
+  myCar1.model = "X5";
+  myCar1.year = 1999;
+
+  // Create another car structure and store it in myCar2;
+  car myCar2;
+  myCar2.brand = "Ford";
+  myCar2.model = "Mustang";
+  myCar2.year = 1969;
+ 
+  // Print the structure members
+  cout << myCar1.brand << " " << myCar1.model << " " << myCar1.year << "\n";
+  cout << myCar2.brand << " " << myCar2.model << " " << myCar2.year << "\n";
+ 
+  return 0;
+}
+
+
+
+//Reference
+//We can create references by using &operator.
+//Dunno how reference and pointers are useful.
+
+string food = "Pizza";  // food variable
+string &meal = food;    // reference to food
+cout << food << "\n";  // Outputs Pizza
+cout << meal << "\n";  // Outputs Pizza
+
+//Memory Address
+string food = "Pizza";
+cout << &food; // Outputs 0x6dfed4
+
+
+
+//Pointers
+//A pointer is a variable that stores the memory address as its value.
+
+string food = "Pizza";  // A food variable of type string
+string* ptr = &food;    // A pointer variable, with the name ptr, that stores
+                        // the address of food
+//Since food is a string, hence pointer is a string too.
+
+// Output the value of food (Pizza)
+cout << food << "\n";
+
+// Output the memory address of food (0x6dfed4)
+cout << &food << "\n";
+
+// Output the memory address of food with the pointer (0x6dfed4)
+cout << ptr << "\n";
+
+
+//Getting Memory address and value
+string food = "Pizza";  // Variable declaration
+string* ptr = &food;    // Pointer declaration
+
+// Reference: Output the memory address of food with the pointer (0x6dfed4)
+cout << ptr << "\n";
+
+// Dereference: Output the value of food with the pointer (Pizza)
+cout << *ptr << "\n";
+
+
+//Modifying Pointer Values
+//We can change pointer value, but it will also change orignal variable value too.
+
+string food = "Pizza";
+string* ptr = &food;
+
+// Output the value of food (Pizza)
+cout << food << "\n";
+
+// Output the memory address of food (0x6dfed4)
+cout << &food << "\n";
+
+// Access the memory address of food and output its value (Pizza)
+cout << *ptr << "\n";
+
+// Change the value of the pointer
+*ptr = "Hamburger";
+
+// Output the new value of the pointer (Hamburger)
+cout << *ptr << "\n";
+
+// Output the new value of the food variable (Hamburger)
+cout << food << "\n";
